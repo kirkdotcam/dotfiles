@@ -1,33 +1,13 @@
-sudo apt install git cargo ripgrep python3-pip python3.12-venv curl eza fzf
+sudo apt install git ripgrep curl eza fzf
 sudo snap install nvim --classic
 sudo snap install alacritty --classic
 
-alias python='python3' 
+export PATH=/home/$(echo $USER)/.local/bin:$PATH
 
-curl https://sh.rustup.rs -sSf | sh
-. "$HOME/.cargo/env"
-
-# installs nvm (Node Version Manager)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-source ~/.config/nvm/nvm.sh
-
-# download and install Node.js (you may need to restart the terminal)
-
-nvm install 20
-source ~/.bashrc
-
-curl -Lo firacode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
-
-unzip firacode.zip
-mkdir -p ~/.local/fonts
-mv FiraCode*.ttf ~/.local/fonts
-rm LICENSE README.md firacode.zip
-
-export PATH=/home/kirkdotcam/.local/bin:$PATH
+# We use Alacritty's default Linux config directory as our storage location here.
+mkdir -p ~/.config/alacritty/themes
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
 cp -r ./config/alacritty ~/.config/alacritty
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/alacritty 50;
+cp -r ./config/nvim ~/.config/
