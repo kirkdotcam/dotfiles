@@ -1,8 +1,11 @@
-sudo apt install git cargo ripgrep python3-pip python3.12-venv curl 
+sudo apt install git cargo ripgrep python3-pip python3.12-venv curl eza fzf
 sudo snap install nvim --classic
 sudo snap install alacritty --classic
 
 alias python='python3' 
+
+curl https://sh.rustup.rs -sSf | sh
+. "$HOME/.cargo/env"
 
 # installs nvm (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
