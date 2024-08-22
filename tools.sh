@@ -26,8 +26,8 @@ curl -Lo firacode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/
 unzip firacode.zip
 mkdir -p ~/.local/fonts
 mv FiraCode*.ttf ~/.local/fonts
-rm LICENSE.md README.md firacode.zip
+rm LICENSE README.md firacode.zip
 
 export PATH=/home/kirkdotcam/.local/bin:$PATH
 
-cp -r ./alacritty ~/.config/alacritty
+cp -r ./config/alacritty ~/.config/alacritty
