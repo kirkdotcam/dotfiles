@@ -35,3 +35,11 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Close terminal automatically when shell exits (I don't know how this works!)
+vim.cmd [[
+  augroup CloseTermOnExit
+    autocmd!
+    autocmd TermClose * if !v:event.status | exe 'bdelete! '..expand('<abuf>') | endif
+  augroup END
+]]
