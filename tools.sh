@@ -1,6 +1,7 @@
 sudo apt install git ripgrep curl eza fzf
 sudo snap install nvim --classic
 sudo snap install alacritty --classic
+sudo snap install zellij --classic 
 
 export PATH=/home/$(echo $USER)/.local/bin:$PATH
 
