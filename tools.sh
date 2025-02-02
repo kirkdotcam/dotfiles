@@ -1,7 +1,9 @@
 sudo apt install git ripgrep curl eza fzf
 sudo snap install nvim --classic
-sudo snap install alacritty --classic
+sudo apt install alacritty
 sudo snap install zellij --classic 
+sudo apt install xclip
+
 
 export PATH=/home/$(echo $USER)/.local/bin:$PATH
 
@@ -9,6 +11,6 @@ export PATH=/home/$(echo $USER)/.local/bin:$PATH
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
-cp -r ./config/alacritty ~/.config/alacritty
+cp -r ./config/alacritty ~/.config/
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/alacritty 50;
 cp -r ./config/nvim ~/.config/
