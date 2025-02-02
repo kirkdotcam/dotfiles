@@ -8,5 +8,8 @@ source ~/.config/nvm/nvm.sh
 
 # download and install Node.js (you may need to restart the terminal)
 
-nvm install 20
+nvm install --lts
 source ~/.bashrc
+
+#neovim provider
+npm i -g neovim
