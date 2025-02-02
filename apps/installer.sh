@@ -1,0 +1,3 @@
+. ./lazygit.sh
+. ./fonts.sh
+
