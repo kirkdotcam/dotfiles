@@ -16,3 +16,11 @@ function msh(){
 
   mongosh $(grep '^MONGODB_URL=' .env | cut -d '=' -f2- | tr -d "'\"")
 }
+
+function z(){
+  if ! zellij ls | grep -q 'default'; then
+    zellij -s default
+  else
+    zellij attach --session default
+  fi
+}
