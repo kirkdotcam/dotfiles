@@ -21,6 +21,6 @@ function z(){
   if ! zellij ls | grep -q 'default'; then
     zellij -s default
   else
-    zellij attach --session default
+    zellij attach --create default
   fi
 }
