@@ -17,10 +17,12 @@ function msh(){
   mongosh $(grep '^MONGODB_URL=' .env | cut -d '=' -f2- | tr -d "'\"")
 }
 
-function z(){
-  if ! zellij ls | grep -q 'default'; then
-    zellij -s default
+function z() {
+  local session="${1:-default}"
+
+  if ! zellij ls | grep -q "$session"; then
+    zellij -s "$session"
   else
-    zellij attach --create default
+    zellij attach --create "$session"
   fi
 }
