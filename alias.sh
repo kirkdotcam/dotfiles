@@ -8,6 +8,9 @@ alias n='nvim'
 alias vact=". ./venv/bin/activate"
 alias za="zellij a default"
 
+alias ...="../.."
+alias ....="../../.."
+
 function msh(){
   if [[ ! -f .env ]]; then
     echo ".env file not found. Exiting."
