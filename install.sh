@@ -40,7 +40,7 @@ read GIT_USERNAME
 
 git config --global user.email $USER_EMAIL
 git config --global user.name $GIT_USERNAME
-
+git config --global init.defaultBranch main
 
 unset USER_EMAIL
 unset GIT_USERNAME

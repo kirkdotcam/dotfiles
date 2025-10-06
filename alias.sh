@@ -8,8 +8,8 @@ alias n='nvim'
 alias vact=". ./venv/bin/activate"
 alias za="zellij a default"
 
-alias ...="../.."
-alias ....="../../.."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 function msh(){
   if [[ ! -f .env ]]; then
@@ -28,4 +28,8 @@ function z() {
   else
     zellij attach --create "$session"
   fi
+}
+
+function gi() { 
+  curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;
 }
