@@ -1,3 +1,3 @@
-. ./lazygit.sh
-. ./fonts.sh
+bash ./lazygit.sh
+bash ./fonts.sh
 
