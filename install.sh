@@ -1,11 +1,35 @@
-. ./tools.sh
-cd apps
-. ./apps/installer.sh
-cd ../languages
-. ./languages/installer.sh
-cd ..
+#!/usr/bin/env bash
+set -euo pipefail
 
-. ./alias.sh
+TARGET_DIR="$HOME/.config/dotfiles"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+f [ "$CURRENT_DIR" != "$TARGET_DIR" ]; then
+  echo "Installing dotfiles to $TARGET_DIR"
+
+  mkdir -p "$HOME/.config"
+
+  mv "$CURRENT_DIR" "$TARGET_DIR"
+
+  echo "Re-running installer from new location..."
+  exec "$TARGET_DIR/install.sh"
+fi
+
+# export so other .sh files in dotfiles can use this.
+DOTFILES_DIR="$TARGET_DIR"
+export DOTFILES_DIR
+
+
+echo $CURRENT_DIR
+
+echo "running tools.sh"
+bash "$CURRENT_DIR/tools.sh"
+echo "running apps/installer.sh"
+bash "$CURRENT_DIR/apps/installer.sh"
+echo "running languages/installer.sh"
+bash "$CURRENT_DIR/languages/installer.sh"
+echo "running alias.sh"
+bash "$CURRENT_DIR/alias.sh"
 
 # Don't run if bashrc is already configured
 if grep -q "#kirkdotcam config#" ~/.bashrc; then
@@ -14,7 +38,7 @@ if grep -q "#kirkdotcam config#" ~/.bashrc; then
 
 else
   # Modify bashrc
-  cat ~/.bashrc > ~/.bashrc_old
+  cp ~/.bashrc > ~/.bashrc.bak.$(date +%s)
 
   cat << EOF >> ~/.bashrc
 
@@ -29,19 +53,29 @@ else
 EOF
 fi
 
-. ~/.bashrc
+# source ~/.bashrc
 
 echo "email to use for ssh keys and git config (use obfuscatead github email!)"
 read USER_EMAIL
-ssh-keygen -T ed25519 -C $USER_EMAIL
-
 echo "username to use for git config"
 read GIT_USERNAME
 
-git config --global user.email $USER_EMAIL
-git config --global user.name $GIT_USERNAME
+echo $USER_EMAIL
+echo $GIT_USERNAME
+
+if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+  ssh-keygen -t ed25519 -C "$USER_EMAIL"
+else
+  echo "SSH Key already exists. Skipping generation of new keys."
+fi
+
+git config --global user.email "$USER_EMAIL"
+git config --global user.name "$GIT_USERNAME"
 git config --global init.defaultBranch main
 
 unset USER_EMAIL
 unset GIT_USERNAME
 
+mv dotfiles ~/.config/dotfiles
+
+[ -f ~/.config/dotfiles/alias.sh ] && source ~/.config/dotfiles/alias.sh

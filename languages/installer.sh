@@ -1,3 +1,3 @@
-. ./rust.sh
-. ./nodejs.sh
-. ./python.sh
+bash ./rust.sh
+bash ./nodejs.sh
+bash ./python.sh

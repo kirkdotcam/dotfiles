@@ -11,6 +11,8 @@ alias za="zellij a default"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+alias sshpub='xclip -selection clipboard < ~/.ssh/id_ed25519.pub && echo "SSH key copied to clipboard."'
+
 function msh(){
   if [[ ! -f .env ]]; then
     echo ".env file not found. Exiting."
