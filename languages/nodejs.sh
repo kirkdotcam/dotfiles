@@ -13,3 +13,5 @@ source ~/.bashrc
 
 #neovim provider
 npm i -g neovim
+
+curl -fsSL https://deno.land/install.sh | sh
