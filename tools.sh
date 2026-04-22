@@ -2,7 +2,7 @@ DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
 
 sudo apt install git ripgrep curl eza fzf btm
 sudo snap install nvim --classic
-sudo apt install alacritty
+sudo cargo install alacritty
 sudo snap install zellij --classic 
 sudo apt install xclip
 
@@ -14,6 +14,6 @@ mkdir -p "$DOTFILES_DIR/alacritty/themes"
 git clone https://github.com/alacritty/alacritty-theme "$DOTFILES_DIR/alacritty/themes"
 
 cp -r "$DOTFILES_DIR/config/alacritty" "$HOME/.config/"
-sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/alacritty 50;
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /home/kirkdotcam/.cargo/bin/alacritty 50;
 
 cp -r "$DOTFILES_DIR/config/nvim" "$HOME/.config/"
