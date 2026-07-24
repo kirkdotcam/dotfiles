@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This file is here to support curl dotfiles.kirk.cam
 set -euo pipefail
 
 REPO_URL="https://github.com/kirkdotcam/dotfiles.git"
