@@ -4,6 +4,7 @@ DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
 sudo apt install git ripgrep curl eza fzf btm
 sudo apt install alacritty
 sudo apt install xclip
+cargo install --locked zellij
 
 # install for NVIM
 
