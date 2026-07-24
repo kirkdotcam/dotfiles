@@ -22,14 +22,18 @@ export DOTFILES_DIR
 
 echo $CURRENT_DIR
 
-echo "running tools.sh"
-bash "$CURRENT_DIR/tools.sh"
-echo "running apps/installer.sh"
-bash "$CURRENT_DIR/apps/installer.sh"
 echo "running languages/installer.sh"
 bash "$CURRENT_DIR/languages/installer.sh"
+
+echo "running tools.sh"
+bash "$CURRENT_DIR/tools.sh"
+
+echo "running apps/installer.sh"
+bash "$CURRENT_DIR/apps/installer.sh"
+
 echo "running alias.sh"
 bash "$CURRENT_DIR/alias.sh"
+
 
 # Don't run if bashrc is already configured
 if grep -q "#kirkdotcam config#" ~/.bashrc; then
