@@ -4,7 +4,7 @@ set -euo pipefail
 TARGET_DIR="$HOME/.config/dotfiles"
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-f [ "$CURRENT_DIR" != "$TARGET_DIR" ]; then
+if [ "$CURRENT_DIR" != "$TARGET_DIR" ]; then
   echo "Installing dotfiles to $TARGET_DIR"
 
   mkdir -p "$HOME/.config"
