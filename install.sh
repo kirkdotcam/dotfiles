@@ -23,13 +23,13 @@ export DOTFILES_DIR
 echo $CURRENT_DIR
 
 echo "running languages/installer.sh"
-bash "$CURRENT_DIR/languages/installer.sh"
+bash "$CURRENT_DIR/languages/installer.sh" "${CURRENT_DIR}/languages"
 
 echo "running tools.sh"
 bash "$CURRENT_DIR/tools.sh"
 
 echo "running apps/installer.sh"
-bash "$CURRENT_DIR/apps/installer.sh"
+bash "$CURRENT_DIR/apps/installer.sh" "${CURRENT_DIR}/apps"
 
 echo "running alias.sh"
 bash "$CURRENT_DIR/alias.sh"
