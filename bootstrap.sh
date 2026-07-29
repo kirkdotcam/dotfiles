@@ -15,4 +15,4 @@ fi
 git clone "${REPO_URL}" "${DOTFILES_TARGET_LOCATION}"
 
 echo "starting dotfiles install"
-exec bash "${DOTFILES_TARGET_LOCATION}/install.sh"
+exec bash "${DOTFILES_TARGET_LOCATION}/install.sh" </dev/tty
