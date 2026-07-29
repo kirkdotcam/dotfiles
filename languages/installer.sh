@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-LANGUAGES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LANGUAGES_DIR="${1:?}"
 
 bash "$LANGUAGES_DIR/rust.sh"
 bash "$LANGUAGES_DIR/nodejs.sh"
