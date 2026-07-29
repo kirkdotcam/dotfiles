@@ -1,11 +1,29 @@
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
 
+# Tools
 sudo apt install git ripgrep curl eza fzf btm
-sudo snap install nvim --classic
-sudo cargo install alacritty
-sudo snap install zellij --classic 
+sudo apt install alacritty
 sudo apt install xclip
+cargo install --locked zellij
 
+# install for NVIM
+
+NVIM_VERSION="$(
+  curl -fsSL 'https://api.github.com/repos/neovim/neovim/releases?per_page=100' |
+  jq -r '.[].tag_name | select(test("^v0\\.11\\.[0-9]+$"))' |
+  sort -V |
+  tail -n 1
+)"
+
+curl -fL \
+  "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz" \
+  -o /tmp/nvim.tar.gz
+
+sudo rm -rf /opt/nvim
+sudo mkdir -p /opt/nvim
+sudo tar -xzf /tmp/nvim.tar.gz --strip-components=1 -C /opt/nvim
+sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
+rm -f /tmp/nvim.tar.gz
 
 export PATH=/home/$(echo $USER)/.local/bin:$PATH
 
@@ -17,3 +35,4 @@ cp -r "$DOTFILES_DIR/config/alacritty" "$HOME/.config/"
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /home/kirkdotcam/.cargo/bin/alacritty 50;
 
 cp -r "$DOTFILES_DIR/config/nvim" "$HOME/.config/"
+
