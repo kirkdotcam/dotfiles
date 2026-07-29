@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_URL="https://github.com/kirkdotcam/dotfiles.git"
-DOTFILES_TARGET_LOCATION="${HOME}/.dotfiles"
+DOTFILES_TARGET_LOCATION="${HOME}/.config/dotfiles"
 
 if command -v git >/dev/null 2>&1; then
   :
