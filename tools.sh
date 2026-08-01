@@ -6,6 +6,7 @@ sudo apt install alacritty
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
 sudo apt install xclip pandoc
 cargo install --locked zellij
+sudo snap install typst
 
 
 
