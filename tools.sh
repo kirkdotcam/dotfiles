@@ -31,8 +31,11 @@ export PATH=/home/$(echo $USER)/.local/bin:$PATH
 mkdir -p "$DOTFILES_DIR/alacritty/themes"
 git clone https://github.com/alacritty/alacritty-theme "$DOTFILES_DIR/alacritty/themes"
 
-cp -r "$DOTFILES_DIR/config/alacritty" "$HOME/.config/"
-sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /home/kirkdotcam/.cargo/bin/alacritty 50;
+# cp -r "$DOTFILES_DIR/config/alacritty" "$HOME/.config/"
+cp -r "$DOTFILES_DIR/config/ghostty" "$HOME/.config"
+sudo update-alternatives --set x-terminal-emulator /usr/bin/ghostty
+gsettings set org.gnome.desktop.default-applications.terminal exec 'ghostty'
+
 
 cp -r "$DOTFILES_DIR/config/nvim" "$HOME/.config/"
 
