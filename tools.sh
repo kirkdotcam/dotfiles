@@ -3,8 +3,11 @@ DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
 # Tools
 sudo apt install git ripgrep curl eza fzf btm
 sudo apt install alacritty
-sudo apt install xclip
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+sudo apt install xclip pandoc
 cargo install --locked zellij
+
+
 
 # install for NVIM
 
