@@ -16,4 +16,4 @@ npm i -g neovim
 
 curl -fsSL https://deno.land/install.sh | sh
 mkdir -p ~/.local/share/bash-completion/completions
-deno completions bash > ~/.local/share/bash-completion/completions/deno
+deno completions --dynamic bash > ~/.local/share/bash-completion/completions/deno
