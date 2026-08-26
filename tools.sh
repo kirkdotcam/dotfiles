@@ -8,6 +8,7 @@ sudo apt install xclip pandoc
 cargo install --locked zellij
 
 sudo apt install nmap whois sherlock
+sudo apt install wireshark termshark
 
 
 # install for NVIM
