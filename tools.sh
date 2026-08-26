@@ -7,6 +7,7 @@ sudo apt install alacritty
 sudo apt install xclip pandoc
 cargo install --locked zellij
 
+sudo apt install nmap whois sherlock
 
 
 # install for NVIM
