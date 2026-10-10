@@ -8,6 +8,8 @@ sudo apt install xclip pandoc
 cargo install --locked zellij
 sudo snap install typst
 
+sudo apt install nmap whois sherlock
+sudo apt install wireshark termshark
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
