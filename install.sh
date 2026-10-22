@@ -83,3 +83,7 @@ unset GIT_USERNAME
 mv dotfiles ~/.config/dotfiles
 
 [ -f ~/.config/dotfiles/alias.sh ] && source ~/.config/dotfiles/alias.sh
+
+echo "updating wallpaper"
+bash "$CURRENT_DIR/set-wallpaper.sh"
+
